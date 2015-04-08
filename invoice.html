@@ -1,0 +1,202 @@
+{{header}}
+<div class="top-header">
+	<table cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="logo">
+					<div class="company">
+						{{var MY_LOGO}}
+					</div>
+				</td>
+				<td class="address">
+					<div class="ctn">
+						<h3>YOUR COMPANY NAME</h3>
+						<p><span>Address:</span>Your company street address text here Your company</p>
+						<p><span>Phone:</span> + 84 091 987 456 </p>
+						<p class="email"><span>Email:</span> Youremail@domain.hosting</p>
+				    </div>
+				</td>
+				<td class="invoice">
+					<h3>Invoice</h3>
+					<p class="">Invoice: <span>#{{var invoice.increment_id}}</span></p>
+					<div class="addition-info">
+						<strong>Created Date:</strong> {{var invoice.created_at_formated.medium}}<br />
+					</div>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+{{/header}}
+<div class="content">
+	<div class="space">
+		
+	</div>
+	<div class="slogan">
+		<p class="hello">Hello this is you invoice</p>
+		
+	</div>
+	
+	<table class="tbl-info" cellspacing="0" cellpadding="0">
+		<tr valign="top">
+			<td>
+				<div class="contain">
+					<div class="ctn"><h3>Billing Address</h3></div>
+					<div class="ctn2">{{var invoice.billing.formated}}</div>
+				</div>
+			</td>
+			<td>
+				<div class="contain">
+				{{if invoice.shipping}}
+					<div class="ctn"><h3>Shipping Address</h3></div>
+					<div class="ctn2">{{var invoice.shipping.formated}}</div>
+				{{else}}
+					<div class="ctn"><h3>Payment Information</h3></div>
+					<div class="ctn2">{{var invoice.payment_info}}</div>
+				{{/if}}
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	{{if invoice.shipping}}
+	<table class="tbl-info pay-ship" cellspacing="0" cellpadding="0">
+		<tr valign="top">
+			<td>
+				<div class="contain">
+				<div class="ctn"><h3>Payment Information</h3></div>
+				<div class="ctn2">{{var invoice.payment_info}}</div>
+				</div>
+			</td>
+			<td>
+				<div class="contain">
+				<div class="ctn"><h3>Shipping information</h3></div>
+				<div class="ctn2">{{var invoice.shipping_description}}</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	{{/if}}
+	
+	<table id="table" class="items" cellspacing="0">
+		<thead> 
+		<tr> 
+			<th class="header product first">PRODUCT</th> 
+			<th class="header sku">SKU</th> 
+			<th class="header tbprice">PRICE</th>
+			<th class="header qty">QTY</th>
+			<th class="header tax">TAX</th>
+			<th class="header subtotal">SUBTOTAL</th>
+		</tr> 
+		</thead> 
+		<tbody>
+		{{foreach invoice.getItems() as item}}
+			{{if item.is_bundle}}
+			<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+				<td class="product">
+					{{var item.name}}
+				</td>
+				<td class="sku">{{var item.sku}}</td>
+				<td class="tbprice">{{var item.price}}</td>
+				<td class="qty">{{var item.qty}}</td>
+				<td class="tax">{{var item.tax}}</td>
+				<td class="subtotal">{{var item.row_total}}</td>
+			</tr>
+			{{foreach1 item.getSubItems() as bundle}}
+				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+					<td>
+						<div style="margin-left:20px;">
+							<strong>{{var bundle.label}}</strong>
+							<div class="product-options">
+								{{var bundle.value}}
+							</div>
+						</div>
+					</td>
+					<td class="sku">{{var bundle.sku}}</td>
+					<td class="tbprice">{{var bundle.price}}</td>
+					<td class="qty">{{var bundle.qty}}</td>
+					<td class="tax">{{var bundle.tax}}</td>
+					<td class="subtotal">{{var bundle.row_total}}</td>
+				</tr>
+			{{/foreach1}}
+			{{else}}
+				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+					<td>
+						{{var item.name}}
+					</td>
+					<td class="sku">{{var item.sku}}</td>
+					<td class="tbprice">{{var item.price}}</td>
+					<td class="qty">{{var item.qty}}</td>
+					<td class="tax">{{var item.tax}}</td>
+					<td class="subtotal">{{var item.row_total}}</td>
+				</tr>
+				{{foreach1 item.options as option}}
+					<tr class="product-options {{if1 (j % 2)}}even{{else1}}odd{{/if1}}"><td colspan="6"><strong>{{var option.label}}</strong> :{{var option.value}}</td></tr>
+				{{/foreach1}}
+			{{/if}}
+			{{inc j 1}}
+		{{/foreach}}
+		</tbody>
+	</table>
+	
+	<table cellspacing="0" cellpadding="0" width="100%" class="tbprice">
+            <tr>
+                <td> </td>
+                <td class="total-due">
+                    <table cellspacing="0" cellpadding="0" width="100%">
+                        <tbody class="total-body">
+			
+                            {{foreach invoice.totals.body as total}}
+                            <tr>
+								
+                                <td class="label"><div class="summary-collapse">{{var total.label}}</div></td>
+                                <td class="value"><div class="summary"><span class="price">{{var total.value}}</span></div></td>
+								
+                            </tr>
+                            {{/foreach}}
+		
+                        </tbody>
+                        <tfoot>
+			
+                            {{foreach invoice.totals.footer as total}}
+                            <tr>
+                                <td class="label"><div class="summary-collapse">{{var total.label}}</div></td>
+                                <td class="value"><div class="summary-collapse"><span class="price">{{var total.value}}</span></div></td>
+                            </tr>
+                            {{/foreach}}
+			
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+	</table>
+
+</div>
+{{footer}}	
+<div class="invoice-footer">
+		{{if invoice.shipping}}
+		<table class="tbl-info2" cellspacing="0" cellpadding="0">
+		
+			<tr valign="top">
+				<td>
+					<div class="barcode">
+						{{barcode invoice.increment_id}}
+					</div>
+				</td>
+		
+				<td>
+					<div class="note">
+						<h3><span></span>Remittance note</h3>
+						<p>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+						the industry's standart dummy text ever since the 1500s, when an unknown printer took a gallery of type 
+						and scrambled it to make a type specimen book
+						</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+		{{/if}}
+</div>
+{{/footer}}
