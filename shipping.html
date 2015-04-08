@@ -69,8 +69,7 @@
                  <p style="text-align:center">Order ID:<br>
                    {{barcode order.increment_id}}<br>{{var order.increment_id}}</p>
 				</div>
-            
-            {{var payment.name}}<!--<br/>infoblock:{{var payment.info}}-->
+            <h4><strong>Amount to be collected:{{var order.grand_total}}</strong></h4><!--<br/>infoblock:{{var payment.info}}-->
 			</td>
           
 		</tr>
@@ -81,8 +80,9 @@
 	<table id="table" class="items" cellspacing="0">
 		<thead> 
 		<tr> 
-			<th class="header qty first">QTY</th>
 			<th class="header product">PRODUCT</th> 
+			<th class="header qty first">QTY</th>
+			<th class="header qty first">VALUE</th>
 			<th class="header sku">SKU</th> 
 		</tr> 
 		</thead> 
@@ -90,13 +90,14 @@
 		{{foreach shipment.getItems() as item}}
 			{{if item.is_bundle}}
 			<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
-				<td class="qty">{{var item.qty}}</td>
 				<td class="product">
 					{{var item.name}}
 				</td>
+				<td class="qty">{{var item.qty}}</td>
+				<td class="qty">{{var item.price}}</td>
 				<td class="sku">{{var item.sku}}</td>
 			</tr>
-			{{foreach1 item.getSubItems() as bundle}}
+			<!-- {{foreach1 item.getSubItems() as bundle}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td class="qty">{{var bundle.qty}}</td>
 					<td>
@@ -109,13 +110,12 @@
 					</td>
 					<td class="sku">{{var bundle.sku}}</td>
 				</tr>
-			{{/foreach1}}
+			{{/foreach1}} -->
 			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+					<td> {{var item.name}} </td>
 					<td class="qty">{{var item.qty}}</td>
-					<td>
-						{{var item.name}}
-					</td>
+					<td class="qty">{{var item.price}}</td>
 					<td class="sku">{{var item.sku}}</td>
 					
 				</tr>
@@ -125,6 +125,12 @@
 			{{/if}}
 			{{inc j 1}}
 		{{/foreach}}
+				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+					<td>X</td>
+					<td class="sku">TOTAL</td>
+					<td class="sku">{{var order.grand_total}}</td>
+					<td class="qty">X</td>
+				</tr>
 		</tbody>
 	</table>
 	
