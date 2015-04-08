@@ -54,14 +54,20 @@
 			</td>
 			<td>
 				<div class="contain">
-                  AWB:
+                  <p style="text-align:center">AWB:<br>
 				{{if shipment.shipping}}
 				{{barcode shipment.increment_id}}
-				{{/if}}
-                  Order ID:
-				{{barcode order.increment_id}}
+				{{/if}}</p>
+                 
 				</div>
 			</td>
+          <td>
+				<div class="contain">
+                 <p style="text-align:center">Order ID:<br>
+                   {{barcode order.increment_id}}</p>
+				</div>
+			</td>
+          
 		</tr>
 	</table>
 	
