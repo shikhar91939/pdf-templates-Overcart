@@ -10,10 +10,11 @@
 				</td>
 				<td class="address">
 					<div class="ctn">
-						<h3>YOUR COMPANY NAME</h3>
-						<p><span>Address:</span>Your company street address text here Your company</p>
-						<p><span>Phone:</span> + 84 091 987 456 </p>
-						<p class="email"><span>Email:</span> Youremail@domain.hosting</p>
+					<h4>OVERCART</h4>
+						<<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+						<div><span>Phone:</span> +91-828-752-2555 </div>
+                        <div class="email"><span>Email:</span> help@overcart.com</div>
+                        <div><span>TIN:</span> 383837437483</div>
 				    </div>
 				</td>
 				<td class="invoice">
@@ -31,12 +32,7 @@
 {{/header}}
 <div class="content">
 	<div class="space">
-		
-	</div>
-	<div class="slogan">
-		<p class="hello">Hello this is you invoice</p>
-		
-	</div>
+</div>
 	
 	<table class="tbl-info" cellspacing="0" cellpadding="0">
 		<tr valign="top">
@@ -62,7 +58,7 @@
 	
 	{{if invoice.shipping}}
 	<table class="tbl-info pay-ship" cellspacing="0" cellpadding="0">
-		<tr valign="top">
+		<!-- <tr valign="top">
 			<td>
 				<div class="contain">
 				<div class="ctn"><h3>Payment Information</h3></div>
@@ -75,7 +71,7 @@
 				<div class="ctn2">{{var invoice.shipping_description}}</div>
 				</div>
 			</td>
-		</tr>
+		</tr> -->
 	</table>
 	{{/if}}
 	
@@ -103,7 +99,7 @@
 				<td class="tax">{{var item.tax}}</td>
 				<td class="subtotal">{{var item.row_total}}</td>
 			</tr>
-			{{foreach1 item.getSubItems() as bundle}}
+			<!-- {{foreach1 item.getSubItems() as bundle}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td>
 						<div style="margin-left:20px;">
@@ -120,7 +116,7 @@
 					<td class="subtotal">{{var bundle.row_total}}</td>
 				</tr>
 			{{/foreach1}}
-			{{else}}
+			{{else}} -->
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td>
 						{{var item.name}}
@@ -175,28 +171,7 @@
 </div>
 {{footer}}	
 <div class="invoice-footer">
-		{{if invoice.shipping}}
-		<table class="tbl-info2" cellspacing="0" cellpadding="0">
-		
-			<tr valign="top">
-				<td>
-					<div class="barcode">
-						{{barcode invoice.increment_id}}
-					</div>
-				</td>
-		
-				<td>
-					<div class="note">
-						<h3><span></span>Remittance note</h3>
-						<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-						the industry's standart dummy text ever since the 1500s, when an unknown printer took a gallery of type 
-						and scrambled it to make a type specimen book
-						</p>
-					</div>
-				</td>
-			</tr>
-		</table>
-		{{/if}}
+  <p style="text-align:center;padding-top:20px;">This is a computer generated document and does not require signature.</p><br/>
+<p style="text-align:center"><strong>Return Address:</strong> Overcart, B 37/A, Basement, Kalka Ji, New Delhi 110019, India	</p>
 </div>
 {{/footer}}
