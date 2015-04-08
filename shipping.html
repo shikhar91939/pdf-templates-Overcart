@@ -20,7 +20,7 @@
 				</td>
 				<td class="invoice">
 					<h4>INVOICE</h4>
-					<div class="">Packingslip: <span>#{{var shipment.increment_id}}</span></div>
+					<div class="">ORDER ID: <span>#{{var order.increment_id}}</span></div>
 					<div class="addition-info">
 						<strong>Created Date:</strong> {{var shipment.created_at_formated.medium}}<br />
 					</div>
@@ -44,19 +44,22 @@
 		<tr valign="top">
 			<td>
 				<div class="contain">
-					<div class="ctn"><h3>Billing Address</h3></div>
-					<div class="ctn2">{{var shipment.billing.formated}}</div>
-				</div>
-			</td>
-			<td>
-				<div class="contain">
-				{{if shipment.shipping}}
+					{{if shipment.shipping}}
 					<div class="ctn"><h3>Shipping Address</h3></div>
 					<div class="ctn2">{{var shipment.shipping.formated}}</div>
 				{{else}}
 					<div class="ctn"><h3>Payment Information</h3></div>
 					<div class="ctn2">{{var shipment.payment_info}}</div>
 				{{/if}}
+			</td>
+			<td>
+				<div class="contain">
+                  AWB:
+				{{if shipment.shipping}}
+				{{barcode shipment.increment_id}}
+				{{/if}}
+                  Order ID:
+				{{barcode order.increment_id}}
 				</div>
 			</td>
 		</tr>
@@ -147,16 +150,6 @@
 </div>
 {{footer}}	
 <div class="invoice-footer">
-		{{if shipment.shipping}}
-		<table class="tbl-info2" cellspacing="0" cellpadding="0" width="100%">
-			<tr valign="top">
-              <td width="100%">
-                <div class="barcode" style="width:100%">
-						{{barcode shipment.increment_id}}
-					</div>
-				</td>
-			</tr>
-		</table>
-		{{/if}}
+		
 </div>
 {{/footer}}
