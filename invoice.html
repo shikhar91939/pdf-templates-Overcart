@@ -11,9 +11,9 @@
 				<td class="address">
 					<div class="ctn">
 					<h4>OVERCART</h4>
-						<<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
-						<div><span>Phone:</span> +91-828-752-2555 </div>
-                        <div class="email"><span>Email:</span> help@overcart.com</div>
+                      <div >B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+						<div><span>Phone:</span > +91-828-752-2555 </div>
+                      <div class="email"><span>Email:</span> help@overcart.com</div><hr style="color:#D2D7D3;"/>
                         <div><span>TIN:</span> 383837437483</div>
                         <div class="addition-info"> CST/VAT REG NO:07230421762<br /> </div>
 				    </div>
@@ -96,7 +96,7 @@
 				<td class="tbprice">{{var item.price}}</td>
 				<td class="qty">{{var item.qty}}</td>
 				<td class="tax">{{var item.tax}}</td>
-				<td class="subtotal">{{var item.row_total}}</td>
+				<td class="subtotal"style="font-family:'Lato', sans-serif;">{{var item.row_total}}</td>
 			</tr>
 			<!-- {{foreach1 item.getSubItems() as bundle}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
@@ -138,15 +138,15 @@
 	<table cellspacing="0" cellpadding="0" width="100%" class="tbprice">
             <tr>
                 <td> </td>
-                <td class="total-due">
+                <td class="total-due" >
                     <table cellspacing="0" cellpadding="0" width="100%">
                         <tbody class="total-body">
 			
                             {{foreach invoice.totals.body as total}}
                             <tr>
 								
-                                <td class="label"><div class="summary-collapse">{{var total.label}}</div></td>
-                                <td class="value"><div class="summary"><span class="price">{{var total.value}}</span></div></td>
+                                <td class="label" ><div class="summary-collapse">{{var total.label}}</div></td>
+                                <td class="value" ><div class="summary"><span class="price">{{var total.value}}</span></div></td>
 								
                             </tr>
                             {{/foreach}}
