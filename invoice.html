@@ -15,15 +15,14 @@
 						<div><span>Phone:</span> +91-828-752-2555 </div>
                         <div class="email"><span>Email:</span> help@overcart.com</div>
                         <div><span>TIN:</span> 383837437483</div>
+                        <div class="addition-info"> CST/VAT REG NO:07230421762<br /> </div>
 				    </div>
 				</td>
 				<td class="invoice">
-					<h3>Invoice</h3>
-					<p class="">Invoice: <span>#{{var invoice.increment_id}}</span></p>
-					<div class="addition-info">
-						<strong>Created Date:</strong> {{var invoice.created_at_formated.medium}}<br />
-					</div>
-
+					<h3>Order {{var order.increment_id}}</h3>
+					<p class="">Invoice no.: <span>#{{var invoice.increment_id}}</span></p>
+					<div class="addition-info"> <strong>Order Date:</strong> {{var order.created_at_formated.medium}}<br /> </div>
+					<div class="addition-info"> <strong>Invoice Date:</strong> {{var invoice.created_at_formated.medium}}<br /> </div>
 				</td>
 			</tr>
 		</tbody>
@@ -115,8 +114,8 @@
 					<td class="tax">{{var bundle.tax}}</td>
 					<td class="subtotal">{{var bundle.row_total}}</td>
 				</tr>
-			{{/foreach1}}
-			{{else}} -->
+			{{/foreach1}} -->
+			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td>
 						{{var item.name}}
