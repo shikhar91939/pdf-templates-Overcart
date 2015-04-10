@@ -12,7 +12,7 @@
 					<div class="ctn">
 						<h4>OVERCART</h4>
 						{{set (variable1,1)}}
-						{{if (variable1==2)}}<!-- try variable1==1 or 2 to switch cases -->
+						{{if (variable1==1)}}<!-- try variable1==1 or 2 to switch cases -->
 							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
 	                        <div class="email"><span>Email:</span> help@overcart.com</div>
@@ -30,7 +30,7 @@
 					<h3>Order</h3>
 					<p class="">Order No: <span>#{{var order.increment_id}}</span></p>
 					<div class="addition-info">
-                      <strong>Created Date:</strong>{{var order.created_at_formated.long}}<br />
+                      <strong>Order Date:</strong>{{var order.created_at_formated.long}}<br />
 					</div>
 
 				</td>
@@ -66,18 +66,18 @@
 	{{if order.shipping}}
 	<table class="tbl-info pay-ship" cellspacing="0" cellpadding="0">
 		<tr valign="top">
-			<td>
+			<td colspan="2">
 				<div class="contain">
 				<div class="ctn"><h3>Payment Information</h3></div>
 				<div class="ctn2">{{var order.payment_info}}</div>
 				</div>
 			</td>
-			<td>
+			<!-- <td>
 				<div class="contain">
 				<div class="ctn"><h3>Shipping information</h3></div>
 				<div class="ctn2">{{var order.shipping_description}}</div>
 				</div>
-			</td>
+			</td> -->
 		</tr>
 	</table>
 	{{/if}}
@@ -179,6 +179,5 @@
 {{footer}}	
 <div class="invoice-footer">
   <p style="text-align:center;padding-top:20px;">This is a computer generated document and does not require signature.</p><br/>
-<p style="text-align:center"><strong>Return Address:</strong> Overcart, B 37/A, Basement, Kalka Ji, New Delhi 110019, India	</p>
 </div>
 {{/footer}}
