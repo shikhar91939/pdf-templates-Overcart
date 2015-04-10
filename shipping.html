@@ -12,7 +12,12 @@
 				<td class="address">
 					<div class="ctn">
 						<h4>OVERCART</h4>
-                      <div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+						{{set (variable1,1)}}
+						{{if (variable1==1)}}<!-- try variable1==1 or 2 to switch cases -->
+	 <div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+{{else}}
+	<div>B 37/A, zzzzz, zz Ji<br>New Delhi - zzz, Indzzia</div>
+{{/if}}
 						<div><span>Phone:</span> +91-828-752-2555 </div>
                         <div class="email"><span>Email:</span> help@overcart.com</div>
                         <div><span>TIN:</span> 383837437483</div>
