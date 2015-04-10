@@ -14,22 +14,23 @@
 						<h4>OVERCART</h4>
 						{{set (variable1,1)}}
 						{{if (variable1==1)}}<!-- try variable1==1 or 2 to switch cases -->
-	 <div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
-{{else}}
-	<div>B 37/A, zzzzz, zz Ji<br>New Delhi - zzz, Indzzia</div>
-{{/if}}
-						<div><span>Phone:</span> +91-828-752-2555 </div>
-                        <div class="email"><span>Email:</span> help@overcart.com</div>
-                        <div><span>TIN:</span> 383837437483</div>
-                      
+							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div class="addition-info"> <strong>VAT/CST: </strong>07230421762<br /> </div>
+	                        <div><span>TIN: </span>383837437483</div>
+						{{else}}
+							<div>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div><span>VAT/TIN: </span>29201223751</div>
+						{{/if}}
 				    </div>
 				</td>
 				<td class="invoice">
 					<h4>INVOICE</h4>
 					<div class=""><strong>ORDER ID: </strong><span>{{var order.increment_id}}</span></div>
 					<div class="addition-info"> <strong>Created Date:</strong> {{var shipment.created_at_formated.medium}}<br /> </div>
-                  	<div class="addition-info"> <strong>VAT REG NO:</strong>07230421762<br /> </div>
-                  	<div class="addition-info"> <strong>CST REG NO:</strong>07230421762<br /> </div>
 				</td>
 			</tr>
 		</tbody>

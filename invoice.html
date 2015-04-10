@@ -10,12 +10,20 @@
 				</td>
 				<td class="address">
 					<div class="ctn">
-					<h4>OVERCART</h4>
-                      <div >B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
-						<div><span>Phone:</span > +91-828-752-2555 </div>
-                      <div class="email"><span>Email:</span> help@overcart.com</div><hr style="color:#D2D7D3;"/>
-                        <div><span>TIN:</span> 383837437483</div>
-                        <div class="addition-info"> CST/VAT REG NO:07230421762<br /> </div>
+						<h4>OVERCART</h4>
+						{{set (variable1,1)}}
+						{{if (variable1==2)}}<!-- try variable1==1 or 2 to switch cases -->
+							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div class="addition-info"> <strong>VAT/CST: </strong>07230421762<br /> </div>
+	                        <div><span>TIN: </span>383837437483</div>
+						{{else}}
+							<div>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div><span>VAT/TIN: </span>29201223751</div>
+						{{/if}}
 				    </div>
 				</td>
 				<td class="invoice">
