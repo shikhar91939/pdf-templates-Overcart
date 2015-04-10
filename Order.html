@@ -10,17 +10,27 @@
 				</td>
 				<td class="address">
 					<div class="ctn">
-						<h3>YOUR COMPANY NAME</h3>
-						<p><span>Address:</span>Your company street address text here Your company</p>
-						<p><span>Phone:</span> + 84 091 987 456 </p>
-						<p class="email"><span>Email:</span> Youremail@domain.hosting</p>
+						<h4>OVERCART</h4>
+						{{set (variable1,1)}}
+						{{if (variable1==2)}}<!-- try variable1==1 or 2 to switch cases -->
+							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div class="addition-info"> <strong>VAT/CST: </strong>07230421762<br /> </div>
+	                        <div><span>TIN: </span>383837437483</div>
+						{{else}}
+							<div>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div><span>VAT/TIN: </span>29201223751</div>
+						{{/if}}
 				    </div>
 				</td>
 				<td class="invoice">
-					<h3>Invoice</h3>
-					<p class="">Order: <span>#{{var order.increment_id}}</span></p>
+					<h3>Order</h3>
+					<p class="">Order No: <span>#{{var order.increment_id}}</span></p>
 					<div class="addition-info">
-						<strong>Created Date:</strong> {{var order.created_at_formated.medium}}<br />
+                      <strong>Created Date:</strong>{{var order.created_at_formated.long}}<br />
 					</div>
 
 				</td>
@@ -30,14 +40,7 @@
 </div>
 {{/header}}
 <div class="content">
-	<div class="space">
-		
-	</div>
-	<div class="slogan">
-		<p class="hello">Hello this is you invoice</p>
-		
-	</div>
-	
+	<div class="space"> </div>
 	<table class="tbl-info" cellspacing="0" cellpadding="0">
 		<tr valign="top">
 			<td>
@@ -142,7 +145,7 @@
 	
 	<table cellspacing="0" cellpadding="0" width="100%" class="tbprice">
             <tr>
-                <td>&nbsp;</td>
+                <td> </td>
                 <td class="total-due">
                     <table cellspacing="0" cellpadding="0" width="100%">
                         <tbody class="total-body">
@@ -175,28 +178,7 @@
 </div>
 {{footer}}	
 <div class="invoice-footer">
-		{{if order.shipping}}
-		<table class="tbl-info2" cellspacing="0" cellpadding="0">
-		
-			<tr valign="top">
-				<td>
-					<div class="barcode">
-						{{barcode order.increment_id}}
-					</div>
-				</td>
-		
-				<td>
-					<div class="note">
-						<h3><span></span>Remittance note</h3>
-						<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-						the industry's standart dummy text ever since the 1500s, when an unknown printer took a gallery of type 
-						and scrambled it to make a type specimen book
-						</p>
-					</div>
-				</td>
-			</tr>
-		</table>
-		{{/if}}
+  <p style="text-align:center;padding-top:20px;">This is a computer generated document and does not require signature.</p><br/>
+<p style="text-align:center"><strong>Return Address:</strong> Overcart, B 37/A, Basement, Kalka Ji, New Delhi 110019, India	</p>
 </div>
 {{/footer}}
