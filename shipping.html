@@ -11,18 +11,24 @@
 				<td class="address">
 					<div class="ctn">
 						<h4>OVERCART --{{var order.customer_id}}</h4>
-						{{set (variable1,1)}}
-						{{if (variable1==1)}}<!-- try variable1==1 or 2 to switch cases -->
-							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+						{{if (order.customer_id==2)}}<!-- cusdID=2 for DEL1, kalka ji  -->
+							<div>B 37/A, Basement, <br/>Behind Nike Showroom, Kalka Ji,<br>New Delhi - 110019, India</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
 	                        <div class="email"><span>Email:</span> help@overcart.com</div>
-	                        <div class="addition-info"> <strong>VAT/CST: </strong>07230421762<br /> </div>
-	                        <div><span>TIN: </span>383837437483</div>
-						{{else}}
+	                        <div class="email"><span>VAT/TIN: </span>07230421762<br /> </div>
+	                        <div><span>CST: </span>07230421762</div>
+	                    {{/if}}
+						{{if (order.customer_id==2)}}
 							<div>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
 	                        <div class="email"><span>Email:</span> help@overcart.com</div>
 	                        <div><span>VAT/TIN: </span>29201223751</div>
+						{{/if}}
+						{{if (order.customer_id==3)}}
+three
+						{{/if}}
+						{{if (order.customer_id==4)}}
+four
 						{{/if}}
 				    </div>
 				</td>
