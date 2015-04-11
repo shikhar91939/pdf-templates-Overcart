@@ -11,24 +11,16 @@
 				<td class="address">
 					<div class="ctn">
 						<h4>OVERCART</h4>
-						{{set (variable1,1)}}
-						{{if (variable1==1)}}<!-- try variable1==1 or 2 to switch cases -->
 							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
 	                        <div class="email"><span>Email:</span> help@overcart.com</div>
 	                        <div class="addition-info"> <strong>VAT/CST: </strong>07230421762<br /> </div>
-	                        <div><span>TIN: </span>383837437483</div>
-						{{else}}
-							<div>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
-							<div><span>Phone:</span> +91-828-752-2555 </div>
-	                        <div class="email"><span>Email:</span> help@overcart.com</div>
-	                        <div><span>VAT/TIN: </span>29201223751</div>
-						{{/if}}
+	                        <div><span>TIN: </span>07230421762</div>
 				    </div>
 				</td>
 				<td class="invoice">
 					<h3>Order</h3>
-					<p class="">Order No: <span>#{{var order.increment_id}}</span></p>
+					<p class="">Order No: <span>{{var order.increment_id}}</span></p>
 					<div class="addition-info">
                       <strong>Order Date:</strong>{{var order.created_at_formated.long}}<br />
 					</div>
@@ -85,29 +77,26 @@
 	<table id="table" class="items" cellspacing="0">
 		<thead> 
 		<tr> 
-			<th class="header product first">PRODUCT</th> 
+			<th class="header product">PRODUCT</th> 
+			<th class="header qty first">QTY</th>
+			<th class="header qty first">VALUE</th>
 			<th class="header sku">SKU</th> 
-			<th class="header tbprice">PRICE</th>
-			<th class="header qty">QTY</th>
-			<th class="header tax">TAX</th>
-			<th class="header subtotal">SUBTOTAL</th>
 		</tr> 
 		</thead> 
 		<tbody>
-		{{foreach order.getItems() as item}}
+		{{foreach shipment.getItems() as item}}
 			{{if item.is_bundle}}
 			<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 				<td class="product">
 					{{var item.name}}
 				</td>
-				<td class="sku">{{var item.sku}}</td>
-				<td class="tbprice">{{var item.price}}</td>
 				<td class="qty">{{var item.qty}}</td>
-				<td class="tax">{{var item.tax}}</td>
-				<td class="subtotal">{{var item.row_total}}</td>
+				<td class="qty">{{var item.price}}</td>
+				<td class="sku">{{var item.sku}}</td>
 			</tr>
-			{{foreach1 item.getSubItems() as bundle}}
+			<!-- {{foreach1 item.getSubItems() as bundle}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+					<td class="qty">{{var bundle.qty}}</td>
 					<td>
 						<div style="margin-left:20px;">
 							<strong>{{var bundle.label}}</strong>
@@ -117,22 +106,15 @@
 						</div>
 					</td>
 					<td class="sku">{{var bundle.sku}}</td>
-					<td class="tbprice">{{var bundle.price}}</td>
-					<td class="qty">{{var bundle.qty}}</td>
-					<td class="tax">{{var bundle.tax}}</td>
-					<td class="subtotal">{{var bundle.row_total}}</td>
 				</tr>
-			{{/foreach1}}
+			{{/foreach1}} -->
 			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
-					<td>
-						{{var item.name}}
-					</td>
-					<td class="sku">{{var item.sku}}</td>
-					<td class="tbprice">{{var item.price}}</td>
+					<td> {{var item.name}} </td>
 					<td class="qty">{{var item.qty}}</td>
-					<td class="tax">{{var item.tax}}</td>
-					<td class="subtotal">{{var item.row_total}}</td>
+					<td class="qty">{{var item.price}}</td>
+					<td class="sku">{{var item.sku}}</td>
+					
 				</tr>
 				{{foreach1 item.options as option}}
 					<tr class="product-options {{if1 (j % 2)}}even{{else1}}odd{{/if1}}"><td colspan="6"><strong>{{var option.label}}</strong> :{{var option.value}}</td></tr>
@@ -140,6 +122,12 @@
 			{{/if}}
 			{{inc j 1}}
 		{{/foreach}}
+				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
+					<td class="qty"></td>
+                  	<td></td>
+					<td class="qty">{{var order.grand_total}}</td>
+					<td class="sku"></td>
+					</tr>
 		</tbody>
 	</table>
 	
