@@ -10,19 +10,33 @@
 				</td>
 				<td class="address">
 					<div class="ctn">
-						<h4>OVERCART+ - {{var order.customer_id}}</h4>
-						{{set (variable1,1)}}
-						{{if (shipment.increment_id==1)}}<!-- try variable1==1 or 2 to switch cases -->
-							<div>B 37/A, Basement, Kalka Ji<br>New Delhi - 110019, India</div>
+<!-- 						<h4>OVERCART+ - {{var order.customer_id}}</h4> -->
+						{{if (order.customer_id==2)}}<!-- cusdID=2 for DEL1, kalka ji, New Delhi  -->
+							<div>Exit10 Marketing,<br/>B 37/A, Basement, <br/>Behind Nike Showroom, Kalka Ji,<br>New Delhi - 110019, India</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
 	                        <div class="email"><span>Email:</span> help@overcart.com</div>
-	                        <div class="addition-info"> <strong>VAT/CST: </strong>07230421762<br /> </div>
-	                        <div><span>TIN: </span>383837437483</div>
-						{{else}}
-							<div>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
+	                        <div class="email"><span>VAT/TIN: </span>07230421762<br /> </div>
+	                        <div><span>CST: </span>07230421762</div>
+	                    {{/if}}
+						{{if (order.customer_id==1)}}<!-- cusdID=1 for BLR1, Marathahalli, Bangalore  -->
+							<div>Exit10 Marketing,<br/>No.1 &2, Ground Floor, Angela Apartments,<br>RJ Garden, Chinnapannahalli Village,<br/>Marathahalli, Bangalore – 560 037</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
 	                        <div class="email"><span>Email:</span> help@overcart.com</div>
 	                        <div><span>VAT/TIN: </span>29201223751</div>
+						{{/if}}<!-- cusdID=3 for DEL2, Dwarka, New Delhi  -->
+						{{if (order.customer_id==3)}}
+						<div>Exit10 Marketing,<br/>Delhi Delhivery FC : 319, Bharthal, Sector 26,<br>Dwarka, New Delhi - 110075.</div>
+						<div><span>Phone:</span> +91-828-752-2555 </div>
+                        <div class="email"><span>Email:</span> help@overcart.com</div>
+                        <div><span>VAT/TIN: </span>07230421762</div>
+	                    <div><span>CST: </span>07230421762</div>
+						{{/if}}
+						{{if (order.customer_id==4)}} <!-- cusdID=4 for BLR2, Tumkur Road, Karnataka  -->
+						<div>Exit10 Marketing,<br/>105/5, Madawara Village,<br/>TCI Bus Stand ,Jaysuraya Kalayan,<br>Mantappa, Tumkur Road<br/>Karnataka - 562123</div>
+							<div><span>Phone:</span> +91-828-752-2555 </div>
+	                        <div class="email"><span>Email:</span> help@overcart.com</div>
+	                        <div class="email"><span>VAT/TIN: </span>29201223751<br/> </div>
+	                        <div><span>CST: </span></div>
 						{{/if}}
 				    </div>
 				</td>
@@ -179,6 +193,22 @@
 {{footer}}	
 <div class="invoice-footer">
   <p style="text-align:center;padding-top:20px;">This is a computer generated document and does not require signature.</p><br/>
-<p style="text-align:center"><strong>Return Address:</strong> Overcart, B 37/A, Basement, Kalka Ji, New Delhi 110019, India	</p>
+  
+	{{if (order.customer_id==2)}}<!-- cusdID=2 for DEL1, kalka ji, New Delhi  -->
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, B 37/A, Basement, Kalka Ji, New Delhi 110019, India	</p>
+	{{/if}}
+
+	{{if (order.customer_id==1)}}<!-- cusdID=1 for BLR1, Marathahalli, Bangalore  -->
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 &amp; 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
+	{{/if}}
+
+	{{if (order.customer_id==3)}}<!-- cusdID=3 for DEL2, Dwarka, New Delhi  -->
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, B 37/A, Basement, Kalka Ji, New Delhi 110019, India	</p>
+	{{/if}}
+
+	{{if (order.customer_id==4)}} <!-- cusdID=4 for BLR2, Tumkur Road, Karnataka  -->
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 &amp; 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
+	{{/if}}
+	
 </div>
 {{/footer}}
