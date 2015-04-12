@@ -66,29 +66,7 @@
 			</td>
 			<td>
 				<div class="contain">
-				{{set (cashondelivery,cashondelivery)}}
-				{{set (purchaseorder,purchaseorder)}}
-				{{set (paytm_cc,paytm_cc)}}
-				{{set (payucheckout_shared,payucheckout_shared)}}
 
-
-				{{if (payment.code== cashondelivery)}}
-              		true : payment.code == cashondelivery/<br/>
-				{{/if}}  
-
-				{{if (payment.code== purchaseorder)}}
-              		true : payment.code == purchaseorder/<br/>
-				{{/if}} 
-
-				{{if (payment.code== paytm_cc)}}
-              		true : payment.code == paytm_cc/<br/>
-				{{/if}} 
-
-				{{if (payment.code== payucheckout_shared)}}
-              		true : payment.code == payucheckout_shared/<br/>
-				{{/if}} 
-						<hr/>
-						<!-- ^^ -->
                   <p style="text-align:center">COD<br>
 				{{if shipment.shipping}}
 				{{barcode shipment.increment_id}}
@@ -101,7 +79,27 @@
 			</td>
           <td>
 			<div class="contain">	
-              collect <h2><strong>COD <br/>{{var order.grand_total}}</strong></h2>:<!--<br/>infoblock:{{var payment.info}}-->
+				{{set (cashondelivery,cashondelivery)}}
+				{{set (purchaseorder,purchaseorder)}}
+				{{set (paytm_cc,paytm_cc)}}
+				{{set (payucheckout_shared,payucheckout_shared)}}
+
+
+				{{if (payment.code== cashondelivery)}}
+              		collect <h2><strong>COD: <br/>{{var order.grand_total}}</strong></h2><br/>
+				{{/if}}  
+
+				{{if (payment.code== purchaseorder)}}
+              		Prepaid Order<br/>
+				{{/if}} 
+
+				{{if (payment.code== paytm_cc)}}
+              		Prepaid Order<br/>
+				{{/if}} 
+
+				{{if (payment.code== payucheckout_shared)}}
+              		Prepaid Order<br/>
+				{{/if}} 
             </div></td>
           
 		</tr>
