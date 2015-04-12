@@ -44,7 +44,8 @@
 					<h3>Order {{var order.increment_id}}</h3>
 					<p class="">Invoice no.: <span>#{{var invoice.increment_id}}</span></p>
 					<div class="addition-info"> <strong>Order Date:</strong> {{var order.created_at_formated.medium}}<br /> </div>
-					<div class="addition-info"> <strong>Invoice Date:</strong> {{var invoice.created_at_formated.medium}}<br /> </div>
+					<div class="addition-info"> <strong>Invoice Date:</strong> {{var invoice.created_at_formated.medium}}<br /></div>
+					<div class="addition-info"> <strong>Payment Method:</strong> {{var payment.name}}<br /> </div>
 				</td>
 			</tr>
 		</tbody>
