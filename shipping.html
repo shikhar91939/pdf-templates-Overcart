@@ -123,7 +123,7 @@
 				<td class="product">
 					{{var item.name}}
 				</td>
-				<td class="qty">{{var item.qty}}</td>
+				<td class="qty">{{var item.qty}}!!{{var item.product.serialcode}}</td>
 				<td class="qty">{{var item.price}}</td>
 				<td class="sku">{{var item.sku}}</td>
 			</tr>
@@ -178,7 +178,7 @@
 	{{/if}}
 
 	{{if (order.customer_id==1)}}<!-- cusdID=1 for BLR1, Marathahalli, Bangalore  -->
-	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 &amp; 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 & 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
 	{{/if}}
 
 	{{if (order.customer_id==3)}}<!-- cusdID=3 for DEL2, Dwarka, New Delhi  -->
@@ -186,7 +186,7 @@
 	{{/if}}
 
 	{{if (order.customer_id==4)}} <!-- cusdID=4 for BLR2, Tumkur Road, Karnataka  -->
-	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 &amp; 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 & 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
 	{{/if}}
 </div>
 {{/footer}}
