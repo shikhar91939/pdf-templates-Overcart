@@ -41,8 +41,7 @@
 				    </div>
 				</td>
 				<td class="invoice">
-					<h4>INVOICE</h4>
-					<div class=""><strong>ORDER ID: </strong><span>{{var order.increment_id}}</span></div>
+					<h3>Order {{var order.increment_id}}</h3>
 					<div class="addition-info"> <strong>Created Date:</strong> {{var shipment.created_at_formated.medium}}<br /> </div>
 				</td>
 			</tr>
@@ -67,7 +66,30 @@
 			<td>
 				<div class="contain">
 
-                  <p style="text-align:center">COD<br>
+				<p style="text-align:center">
+					{{set (cashondelivery,cashondelivery)}}
+					{{set (purchaseorder,purchaseorder)}}
+					{{set (paytm_cc,paytm_cc)}}
+					{{set (payucheckout_shared,payucheckout_shared)}}
+
+					{{if (payment.code== cashondelivery)}}
+              			COD
+					{{/if}}  
+
+					{{if (payment.code== purchaseorder)}}
+	              		Prepaid Order
+					{{/if}} 
+
+					{{if (payment.code== paytm_cc)}}
+	              		Prepaid Order
+					{{/if}} 
+
+					{{if (payment.code== payucheckout_shared)}}
+	              		Prepaid Order
+					{{/if}} 
+
+
+                  <br>
 				{{if shipment.shipping}}
 				{{barcode shipment.increment_id}}
 				{{/if}}<br>
@@ -86,19 +108,19 @@
 
 
 				{{if (payment.code== cashondelivery)}}
-              		collect <h2><strong>COD: <br/>{{var order.grand_total}}</strong></h2><br/>
+              		<h3>collect <strong>COD: </strong></h3><h2><strong>{{var order.grand_total}}</strong></h2><br/>
 				{{/if}}  
 
 				{{if (payment.code== purchaseorder)}}
-              		Prepaid Order<br/>
+              		<h2>Purchase Order</h2><br/>
 				{{/if}} 
 
 				{{if (payment.code== paytm_cc)}}
-              		Prepaid Order<br/>
+              		<h2>Paytm Order</h2><br/>
 				{{/if}} 
 
 				{{if (payment.code== payucheckout_shared)}}
-              		Prepaid Order<br/>
+              		<h2>PayU Order</h2><br/>
 				{{/if}} 
             </div></td>
           
@@ -112,7 +134,7 @@
 		<tr> 
 			<th class="header product">PRODUCT</th> 
 			<th class="header qty first">QTY</th>
-			<th class="header qty first">VALUE</th>
+			<!-- <th class="header qty first">VALUE</th> -->
 			<th class="header sku">SKU</th> 
 		</tr> 
 		</thead> 
@@ -124,8 +146,8 @@
 					{{var item.name}}
 				</td>
 				<td class="qty">{{var item.qty}}</td>
-				<td class="qty">{{var item.price}}</td>
-				<td class="sku">{{var item.sku}}</td>
+				<!-- <td class="qty">{{var item.price}}</td> -->
+				<td class="product">{{var item.sku}}</td>
 			</tr>
 			<!-- {{foreach1 item.getSubItems() as bundle}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
@@ -143,10 +165,10 @@
 			{{/foreach1}} -->
 			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
-					<td> {{var item.name}} </td>
+					<td class="product"> {{var item.name}} </td>
 					<td class="qty">{{var item.qty}}</td>
-					<td class="qty">{{var item.price}}</td>
-					<td class="sku">{{var item.sku}}</td>
+					<!-- <td class="qty">{{var item.price}}</td> -->
+					<td class="product">{{var item.sku}}</td>
 					
 				</tr>
 				{{foreach1 item.options as option}}
