@@ -141,10 +141,33 @@
 			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td>
-                      {{var item.name}}
-                      <br>
-                      <span style="font-size:9px;">{{var item.serialcode}}</span>
-                      <span style="font-size: 10px;"><b>6 Months Warranty</b><span>
+	                	{{var item.name}}<br/>
+
+	                	{{set (Yes,Yes)}}
+	                	{{set (MR65585,MR65585)}}
+	                	{{set (MU65585,MU65585)}}
+	                	<hr/>
+
+	                	{{if1 (item.product.showimeiininvoice==Yes)}}
+	                		<span style="font-size:9px;"><b>showimei:{{var item.product.showimeiininvoice}}</b>{<!-- {var item.serialcode}}.  --></span>
+	                	{{else1}}
+	                		showimei:{{var item.product.showimeiininvoice}}
+	                	{{/if1}}
+	                	<hr/>
+
+	                	{{if1 (item.sku==MR65585)}}
+	                		<span style="font-size: 10px;"><b>MR65585</b><!-- 6 Months Warranty --><span>
+	                	{{else1}}
+	                		{{var item.sku}}
+	                	{{/if1}}
+	                	<hr/>
+
+	                	{{if1 (item.sku==MU65585)}}
+	                		<span style="font-size: 10px;"><b>MU65585</b><!-- 6 Months Warranty --><span>
+	                	{{else1}}
+	                		{{var item.sku}}
+	                	{{/if1}}	
+
 					</td>
 					<td class="sku">{{var item.sku}}</td>
 					<td class="tbprice">{{var item.price}}</td>
