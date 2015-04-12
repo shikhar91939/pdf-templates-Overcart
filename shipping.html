@@ -68,7 +68,7 @@
 				<div class="contain">
 				{{set (cashondelivery,cashondelivery)}}
 				{{set (purchaseorder,purchaseorder)}}
-				{{set (patym_cc,patym_cc)}}
+				{{set (paytm_cc,paytm_cc)}}
 				{{set (payucheckout_shared,payucheckout_shared)}}
 
 
@@ -80,8 +80,8 @@
               		true : payment.code == purchaseorder/<br/>
 				{{/if}} 
 
-				{{if (payment.code== patym_cc)}}
-              		true : payment.code == patym_cc/<br/>
+				{{if (payment.code== paytm_cc)}}
+              		true : payment.code == paytm_cc/<br/>
 				{{/if}} 
 
 				{{if (payment.code== payucheckout_shared)}}
