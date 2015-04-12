@@ -148,24 +148,26 @@
 	                	{{set (MU65585,MU65585)}}
 	                	<hr/>
 
-	                	{{if1 (item.product.showimeiininvoice==Yes)}}
-	                		<span style="font-size:9px;"><b>showimei:{{var item.product.showimeiininvoice}}</b>{<!-- {var item.serialcode}}.  --></span>
-	                	{{else1}}
-	                		showimei:{{var item.product.showimeiininvoice}}
+	                	{{if1 item.product.showimeiininvoice}}
+		                	{{if2 (item.product.showimeiininvoice==Yes)}}
+		                		<span style="font-size:9px;"><b>_/{{var item.product.showimeiininvoice}}</b>{{var item.serialcode}}. </span>
+		                	{{else2}}
+		                		X-{{var item.product.showimeiininvoice}}
+		                	{{/if2}}
 	                	{{/if1}}
 	                	<hr/>
 
 	                	{{if1 (item.sku==MR65585)}}
-	                		<span style="font-size: 10px;"><b>MR65585</b><!-- 6 Months Warranty --><span>
+	                		<span style="font-size: 10px;"><b>_/MR65585</b>6 Months Warranty<span>
 	                	{{else1}}
-	                		{{var item.sku}}
+	                		X-{{var item.sku}}
 	                	{{/if1}}
 	                	<hr/>
 
 	                	{{if1 (item.sku==MU65585)}}
-	                		<span style="font-size: 10px;"><b>MU65585</b><!-- 6 Months Warranty --><span>
+	                		<span style="font-size: 10px;"><b>_/MU65585</b>6 Months Warranty<span>
 	                	{{else1}}
-	                		{{var item.sku}}
+	                		X-{{var item.sku}}
 	                	{{/if1}}	
 
 					</td>
