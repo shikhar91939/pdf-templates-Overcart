@@ -146,28 +146,19 @@
 	                	{{set (Yes,Yes)}}
 	                	{{set (MR65585,MR65585)}}
 	                	{{set (MU65585,MU65585)}}
-	                	<hr/>
 
 	                	{{if1 item.product.showimeiininvoice}}
 		                	{{if2 (item.product.showimeiininvoice==Yes)}}
-		                		<span style="font-size:9px;"><b>_/{{var item.product.showimeiininvoice}}</b>{{var item.serialcode}}. </span>
-		                	{{else2}}
-		                		X-{{var item.product.showimeiininvoice}}
+		                		<span style="font-size:9px;">{{var item.serialcode}}. </span>
 		                	{{/if2}}
 	                	{{/if1}}
-	                	<hr/>
 
 	                	{{if1 (item.sku==MR65585)}}
-	                		<span style="font-size: 10px;"><b>_/MR65585</b>6 Months Warranty<span>
-	                	{{else1}}
-	                		X-{{var item.sku}}
+	                		<span style="font-size: 10px;">6 Months Warranty<span>
 	                	{{/if1}}
-	                	<hr/>
 
 	                	{{if1 (item.sku==MU65585)}}
-	                		<span style="font-size: 10px;"><b>_/MU65585</b>6 Months Warranty<span>
-	                	{{else1}}
-	                		X-{{var item.sku}}
+	                		<span style="font-size: 10px;">6 Months Warranty<span>
 	                	{{/if1}}	
 
 					</td>
