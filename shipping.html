@@ -155,14 +155,9 @@
 			{{/if}}
 			{{inc j 1}}
 		{{/foreach}}
-				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
-					<td class="qty"></td>
-                  	<td></td>
-					<td class="qty">{{var order.grand_total}}</td>
-					<td class="sku"></td>
-					</tr>
 		</tbody>
 	</table>
+	
 	
 <div class="invoice-barcode"><p style="text-align:center">Order ID:<br>
                    {{barcode order.increment_id}}<br>{{var order.increment_id}}</p>
