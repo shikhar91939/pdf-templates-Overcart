@@ -113,6 +113,7 @@
 			<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 				<td class="product">
 					{{var item.name}}
+                  
 				</td>
 				<td class="sku">{{var item.sku}}</td>
 				<td class="tbprice">{{var item.price}}</td>
@@ -140,16 +141,10 @@
 			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td>
-						{{var item.name}}
-						{{set (Yes,Yes)}}
-						{{set (tmpEmail,shikhar.91939@gmail.com)}}
-						{{var item.product.showimeioninvoice}}//
-						<!-- //{{var customer.email}} //{{var tmpEmail}}//{{var Yes}}-->
-						{{if1 (customer.email==tmpEmail)}}
-							True
-						{{else1}}
-							False
-						{{/if1}}
+                      {{var item.name}}
+                      <br>
+                      <span style="font-size:9px;">{{var item.serialcode}}</span>
+                      <span style="font-size: 10px;"><b>6 Months Warranty</b><span>
 					</td>
 					<td class="sku">{{var item.sku}}</td>
 					<td class="tbprice">{{var item.price}}</td>
@@ -208,7 +203,7 @@
 	{{/if}}
 
 	{{if (order.customer_id==1)}}<!-- cusdID=1 for BLR1, Marathahalli, Bangalore  -->
-	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 &amp; 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 & 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
 	{{/if}}
 
 	{{if (order.customer_id==3)}}<!-- cusdID=3 for DEL2, Dwarka, New Delhi  -->
@@ -216,7 +211,7 @@
 	{{/if}}
 
 	{{if (order.customer_id==4)}} <!-- cusdID=4 for BLR2, Tumkur Road, Karnataka  -->
-	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 &amp; 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
+	<p style="text-align:center"><strong>Return Address:</strong> Exit10 Marketing, No.1 & 2, Ground Floor, Angela Apartments, RJ Garden, Chinnapannahalli Village, Marathahalli, Bangalore – 560 037,India	</p>
 	{{/if}}
 	
 </div>
