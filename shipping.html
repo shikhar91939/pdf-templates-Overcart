@@ -55,48 +55,51 @@
 		<tr valign="top">
 			<td>
 				<div class="contain">
-					{{if shipment.shipping}}
+				{{if shipment.shipping}}
 					<div class="ctn"><h3>Shipping Address</h3></div>
 					<div class="ctn2">{{var shipment.shipping.formated}}</div>
 				{{else}}
 					<div class="ctn"><h3>Payment Information</h3></div>
 					<div class="ctn2">{{var shipment.payment_info}}</div>
-                  {{/if}}</div>
+                {{/if}}
+                </div>
 			</td>
 			<td>
 				<div class="contain">
-
-				<p style="text-align:center">
-					{{set (cashondelivery,cashondelivery)}}
-					{{set (purchaseorder,purchaseorder)}}
-					{{set (paytm_cc,paytm_cc)}}
-					{{set (payucheckout_shared,payucheckout_shared)}}
-
-					{{if (payment.code== cashondelivery)}}
-              			COD
-					{{/if}}  
-
-					{{if (payment.code== purchaseorder)}}
-	              		Prepaid Order
-					{{/if}} 
-
-					{{if (payment.code== paytm_cc)}}
-	              		Prepaid Order
-					{{/if}} 
-
-					{{if (payment.code== payucheckout_shared)}}
-	              		Prepaid Order
-					{{/if}} 
-
-
-                  <br>
-				{{if shipment.shipping}}
-				{{barcode shipment.increment_id}}
-				{{/if}}<br>
-                    AWB:{{var shipment.increment_id}} 
-                  
-                  </p>
-                 
+                	<p style="text-align:center">
+                    	{{set (cashondelivery,cashondelivery)}}
+                        {{set (purchaseorder,purchaseorder)}}
+                        {{set (paytm_cc,paytm_cc)}}
+                        {{set (payucheckout_shared,payucheckout_shared)}}
+                        
+                        {{if (payment.code== cashondelivery)}}
+                        COD
+                        {{/if}}  
+                        
+                        {{if (payment.code== purchaseorder)}}
+                        PREPAID ORDER
+                        {{/if}} 
+                        
+                        {{if (payment.code== paytm_cc)}}
+                        PREPAID ORDER
+                        {{/if}} 
+                        
+                        {{if (payment.code== payucheckout_shared)}}
+                        PREPAID ORDER
+                        {{/if}}
+                    <br />
+                    {{if shipment.shipping}}
+                        {{barcode shipment.increment_id}}
+                    {{/if}}
+                    <br />
+                      AWB:{{var shipment.increment_id}}
+                    <br />
+                    {{if shipment.tracking}}
+                      {{foreach shipment.tracking as track}}
+                               <h3 class="trackTitle">{{var track.title}}</h3>
+                      {{/foreach}}
+                    {{/if}}
+                	</p>
 				</div>
 			</td>
           <td>
@@ -108,26 +111,25 @@
 
 
 				{{if (payment.code== cashondelivery)}}
-              		<h3>collect <strong>COD: </strong></h3><h2><strong>{{var order.grand_total}}</strong></h2><br/>
+              		<h3><strong>COD AMOUNT: </strong></h3>
+              		<h1><strong>{{var order.grand_total}}</strong></h1>
 				{{/if}}  
 
 				{{if (payment.code== purchaseorder)}}
-              		<h2>Purchase Order</h2><br/>
+              		<h2>PREAPID ORDER</h2><br/>
 				{{/if}} 
 
 				{{if (payment.code== paytm_cc)}}
-              		<h2>Paytm Order</h2><br/>
+              		<h2>PREPAID ORDER</h2><br/>
 				{{/if}} 
 
 				{{if (payment.code== payucheckout_shared)}}
-              		<h2>PayU Order</h2><br/>
+              		<h2>PREPAID ORDER</h2><br/>
 				{{/if}} 
-            </div></td>
-          
+            </div>
+  		</td>
 		</tr>
 	</table>
-	
-	
 	
 	<table id="table" class="items" cellspacing="0">
 		<thead> 
@@ -180,9 +182,9 @@
 		</tbody>
 	</table>
 
-<div class="invoice-barcode"><p style="text-align:center">Order ID:<br>
-                   {{barcode order.increment_id}}<br>{{var order.increment_id}}</p>
-				</div>
+	<div class="invoice-barcode"><p style="text-align:center">Order ID:<br>
+    	{{barcode order.increment_id}}<br>{{var order.increment_id}}</p>
+	</div>
 
 </div>
 {{footer}}	
