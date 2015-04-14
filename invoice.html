@@ -11,11 +11,11 @@
 				<td class="address">
 					<div class="ctn">
 						{{set (Retailer,Retailer)}}
-	                    {{if (customer.customer_group==Retailer)}}
-	 						<h4>OVERCART+ {{var customer.customer_group}}</h4> 
-	                    {{else}}
-	                      no group
-	                     {{/if}}
+                      {{if (customer.customer_group==Retailer)}}
+ 						<h2>Tax invoice</h2> 
+                      {{else}}
+                      
+                      {{/if}}
 						{{if (order.customer_id==2)}}<!-- cusdID=2 for DEL1, kalka ji, New Delhi  -->
 							<div>Exit10 Marketing,<br/>B 37/A, Basement, <br/>Behind Nike Showroom, Kalka Ji,<br>New Delhi - 110019, India</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
