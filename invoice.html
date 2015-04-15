@@ -10,12 +10,15 @@
 				</td>
 				<td class="address">
 					<div class="ctn">
+                     
+             		{{if customer.email}}
 						{{set (Retailer,Retailer)}}
-                      {{if (customer.customer_group==Retailer)}}
- 						<h2>Tax invoice</h2> 
-                      {{else}}
-                      
-                      {{/if}}
+						{{if1 (customer.customer_group==Retailer)}}
+							<h2 class="h2tax" align="center">Tax invoice</h2>
+	 					{{/if1}}
+					{{else}}
+	
+					{{/if}}
 						{{if (order.customer_id==2)}}<!-- cusdID=2 for DEL1, kalka ji, New Delhi  -->
 							<div>Exit10 Marketing,<br/>B 37/A, Basement, <br/>Behind Nike Showroom, Kalka Ji,<br>New Delhi - 110019, India</div>
 							<div><span>Phone:</span> +91-828-752-2555 </div>
@@ -49,7 +52,7 @@
 					<h3>Order {{var order.increment_id}}</h3>
 					<p class="">Invoice no.: <span>#{{var invoice.increment_id}}</span></p>
 					<div class="addition-info"> <strong>Order Date:</strong> {{var order.created_at_formated.medium}}<br /> </div>
-					<div class="addition-info"> <strong>Invoice Date:</strong> {{var invoice.created_at_formated.medium}}<br /></div>
+					<div class="addition-info"> <strong>Invoice Date:</strong> {{var invoice.created_at_formated.medium}}<br /><br/> </div>
 					<div class="addition-info"> <strong>Payment Method:</strong> {{var payment.name}}<br /> </div>
 				</td>
 			</tr>
@@ -147,7 +150,7 @@
 			{{else}}
 				<tr class="{{if1 (j % 2)}}even{{else1}}odd{{/if1}}">
 					<td>
-	                	{{var item.name}}<br/>
+	                	{{var item.name}}
 
 	                	{{set (Yes,Yes)}}
 	                	{{set (MR65585,MR65585)}}
@@ -155,16 +158,16 @@
 
 	                	{{if1 item.product.showimeiininvoice}}
 		                	{{if2 (item.product.showimeiininvoice==Yes)}}
-		                		<span style="font-size:9px;">{{var item.serialcode}}. </span>
+                      <br><span style="font-size:9px;"><b>{{var item.serialcode}}</b></span>
 		                	{{/if2}}
 	                	{{/if1}}
 
 	                	{{if1 (item.sku==MR65585)}}
-	                		<span style="font-size: 10px;">6 Months Warranty<span>
+                      <br><span style="font-size: 10px;"><br>6 Months Warranty</b><span>
 	                	{{/if1}}
 
 	                	{{if1 (item.sku==MU65585)}}
-	                		<span style="font-size: 10px;">6 Months Warranty<span>
+	                		<br><span style="font-size: 10px;">6 Months Warranty<span>
 	                	{{/if1}}	
 
 					</td>
